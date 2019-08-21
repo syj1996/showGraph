@@ -13,12 +13,13 @@ import java.io.IOException;
 
 @WebServlet("/nodeTable")
 public class nodeTable extends HttpServlet {
+    private getDataBase getDataBase=new getDataBase();
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
         String action=req.getParameter("action");
         String ip=req.getParameter("nodeIp");
         String  sql="select * from message_feiq WHERE SIP='"+ip+"' or DIP='"+ip+"'";
         if(action.equals("search"))
-        resp.getWriter().println(new getDataBase().getMessage(sql));
+        resp.getWriter().println(getDataBase.getMessage(sql));
     }
 }

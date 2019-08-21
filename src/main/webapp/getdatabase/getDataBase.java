@@ -11,13 +11,13 @@ import java.util.List;
  * 得到数据库的数据
  */
 public class getDataBase {
-    private  JdbcTemplate template=new JdbcTemplate(JDBCUtils.getDataSource());
+    private static JdbcTemplate template=new JdbcTemplate(JDBCUtils.getDataSource1());
     /**
      * 获取特定的报文信息
      * @return 返回固定时间范围的数据
      */
     public String  getMessage(String sql){
-        List<message> li = template.query(sql, new BeanPropertyRowMapper<message>(message.class));
+        List<message> li = template.query(sql, new BeanPropertyRowMapper<>(message.class));
         if(li.size()!=0)
         {
             return  new Gson().toJson(li);
@@ -25,8 +25,8 @@ public class getDataBase {
         else return null;
     }
     public String  getMessage(String sql1,String sql2){
-        List<message> li = template.query(sql1, new BeanPropertyRowMapper<message>(message.class));
-        List<message> li2 = template.query(sql2, new BeanPropertyRowMapper<message>(message.class));
+        List<message> li = template.query(sql1, new BeanPropertyRowMapper<>(message.class));
+        List<message> li2 = template.query(sql2, new BeanPropertyRowMapper<>(message.class));
         if(li.size()!=0)
         {
             li.addAll(li2);

@@ -108,9 +108,12 @@
     #table{
         width:100%;
         height:80%;
-        display: flex;
-        justify-content:center;
-        overflow-y: true;
+    }
+    #title{
+        height: 40px;
+        font-size: 30pt;
+        font-family: 微软雅黑;
+        font-weight: bold;
     }
     .btn{
         width:30%;
@@ -285,11 +288,11 @@
 
 
     // Bind the events:
-    s.bind('clickNode doubleClickNode rightClickNode', function(e) {
+    s.bind('clickNode', function(e) {
         var nodeInfo= e.data.node;
         generateNodeTable(nodeInfo);
     });
-    s.bind('clickEdge doubleClickEdge rightClickEdge', function(e) {
+    s.bind('clickEdge', function(e) {
         var edgeInfo= e.data.edge;
         generateEdgeTable(edgeInfo);
     });

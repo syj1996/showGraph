@@ -10,8 +10,9 @@ import java.io.IOException;
 
 @WebServlet("/edgeTable")
 public class edgeTable extends httpServlet {
+    private getDataBase getDataBase=new getDataBase();
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
         String action=req.getParameter("action");
         String SIP=req.getParameter("SIP");
         String DIP=req.getParameter("DIP");
@@ -19,7 +20,7 @@ public class edgeTable extends httpServlet {
         String  sql2="select * from message_feiq WHERE SIP='"+DIP+"' and DIP='"+SIP+"'";
         if(action.equals("search"))
         {
-            resp.getWriter().println(new getDataBase().getMessage(sql1,sql2));
+            resp.getWriter().println(getDataBase.getMessage(sql1,sql2));
         }
     }
 }

@@ -10,14 +10,15 @@ import java.io.IOException;
 import java.lang.*;
 @WebServlet("/httpServlet")
 public class httpServlet extends HttpServlet {
+    private getDataBase getDataBase=new getDataBase();
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
         String action=req.getParameter("action");
         int number=Integer.valueOf(req.getParameter("number"));
         int interval=Integer.valueOf(req.getParameter("interval"));
         if(action.equals("start")){
-            String  sql="select * from message_feiq WHERE Number>="+ String.valueOf(number) +" and Number<"+String.valueOf(number+interval);
-            resp.getWriter().println(new getDataBase().getMessage(sql));
+            String  sql="select * from message_feiq WHERE Number>="+ (number) +" and Number<"+(number+interval);
+            resp.getWriter().println(getDataBase.getMessage(sql));
         }
 
     }
