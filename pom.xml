@@ -45,7 +45,7 @@
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.17</version>
+      <version>8.0.28</version>
     </dependency>
     <!--spring JBDC template 使用jar包   spring-jbdc spring-beans spring-core commons-logging spring-tx -->
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
